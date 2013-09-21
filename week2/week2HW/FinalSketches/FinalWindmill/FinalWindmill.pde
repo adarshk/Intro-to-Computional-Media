@@ -5,7 +5,7 @@
 float r = 0; 
 float speed = 0; 
 float slowdownSpeed = 0.1;
-
+PImage windmillBackground;
 
 int ellSize= 8;
 int drops = 10;
@@ -16,6 +16,7 @@ float [] yspeed= new float[drops];
 
 
 void setup() {
+  windmillBackground = loadImage("resizedwindmillbg.jpg");
   size(400, 400);
   for(int i=0; i<10; i++) {
     xpos[i]= random(ellSize, width-ellSize);
@@ -33,7 +34,7 @@ void draw() {
   
  
   
-  PImage windmillBackground = loadImage("resizedwindmillbg.jpg");
+  
   image(windmillBackground, 0, 0);
   //background(windmillBackground);
   
