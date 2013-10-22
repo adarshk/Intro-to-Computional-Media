@@ -14,8 +14,18 @@ float slowdownSpeed = 0.1;
 float dropRotateSpeed=1;
 int scoreCount=0;
 
+Windmill wm;
+
+ArrayList <Drops> drop;
+
 void setup(){
   size(550,550);
+  
+  wm = new Windmill(0,0,9,180);
+  
+  drop = new ArrayList<Drops>();
+  
+  drop.add(new Drop());  
   
 }
 
