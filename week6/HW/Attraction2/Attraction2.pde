@@ -15,12 +15,25 @@ import ddf.minim.*;
 import ddf.minim.ugens.*;
 import ddf.minim.analysis.*;
 //import arb.soundcipher.*;
+
+import pbox2d.*;
+import org.jbox2d.common.*;
+import org.jbox2d.dynamics.joints.*;
+import org.jbox2d.collision.shapes.*;
+import org.jbox2d.collision.shapes.Shape;
+import org.jbox2d.common.*;
+import org.jbox2d.dynamics.*;
+import org.jbox2d.dynamics.contacts.*;
  
 Minim minim;
 AudioPlayer song;
 AudioOutput out;
 FFT fft;
 Oscil fm;
+
+PBox2D box2d;
+ArrayList<box2dParticle> box2dParticles;
+Boundary wall;
 
 VerletPhysics2D physics;
 Particle p1;
@@ -39,11 +52,20 @@ Chain chain;
 void setup(){
   
   size(680,680,P3D);
+  
+  box2d = new PBox2D(this);
+  box2d.createWorld();
+
+  // Turn on collision listening!
+  box2d.listenForCollisions();
+
+  // Create the empty list
+  box2dParticles = new ArrayList<box2dParticle>();
    
   physics = new VerletPhysics2D();
   physics.setWorldBounds(new Rect(0,0,width,height-20));
   physics.setDrag(0.05f);
-  physics.addBehavior(new GravityBehavior(new Vec2D(0, 0.5)));
+  //physics.addBehavior(new GravityBehavior(new Vec2D(0, 0.5)));
   
   particles = new ArrayList<Particle>();
   for(int i=0;i<20;i++){
@@ -83,13 +105,32 @@ void setup(){
   wave.patch( out );
   */
   
+  
+  for(int j=0;j<20;j++){
+  box2dParticles.add(new box2dParticle(random(width),20,4));
+  }
+  wall = new Boundary(width/2, height-5, width, 10);
+  
 }
 
 
 void draw(){
 
   background(255);
+  box2d.step();
   physics.update();
+  
+  
+  // Look at all particles
+  for (int k = box2dParticles.size()-1; k >= 0; k--) {
+    box2dParticle p1 = box2dParticles.get(k);
+    p1.display();
+    // Particles that leave the screen, we delete them
+    // (note they have to be deleted from both the box2d world and our list
+    if (p1.done()) {
+      box2dParticles.remove(k);
+    }
+  }
   
   for(Particle p:particles){
      p.borderCheck();
@@ -128,7 +169,7 @@ void draw(){
   } 
   */
   
-  
+  wall.display();
 
 }
 
@@ -162,5 +203,32 @@ void stop(){
   
   super.stop();
 
+}
+
+
+// Collision event functions!
+void beginContact(Contact cp) {
+  // Get both fixtures
+  Fixture f1 = cp.getFixtureA();
+  Fixture f2 = cp.getFixtureB();
+  // Get both bodies
+  Body b1 = f1.getBody();
+  Body b2 = f2.getBody();
+
+  // Get our objects that reference these bodies
+  Object o1 = b1.getUserData();
+  Object o2 = b2.getUserData();
+
+  if (o1.getClass() == box2dParticle.class && o2.getClass() == box2dParticle.class) {
+    box2dParticle p_1 = (box2dParticle) o1;
+    p_1.change();
+    box2dParticle p_2 = (box2dParticle) o2;
+    p_2.change();
+  }
+
+}
+
+// Objects stop touching each other
+void endContact(Contact cp) {
 }
 
