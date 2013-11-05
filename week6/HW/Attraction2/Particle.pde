@@ -73,7 +73,7 @@ class Particle extends VerletParticle2D {
     }
 
     if (y>=rt.height) {
-      this.addForce(new Vec2D(random(-3, 3), random(-40, -90)));
+      this.addForce(new Vec2D(random(-3, 3), random(-25, -50)));
     }
     
     
@@ -104,11 +104,31 @@ class Particle extends VerletParticle2D {
     
     }
     
+   /* 
+    Vec2D checkVel = this.getVelocity();
+    
+    if(checkVel.x<=0.3 && checkVel.y<=0.3){
+    
+    if(x>=0 && x<rt.width && y>0 && y<rt.height){
+    
+        this.addVelocity(new Vec2D(random(-5, 5), random(-5, 5)));
+      
+    }}
+    */
+    
+    Vec2D checkVel = this.getVelocity();
+    
+    if(checkVel.x<0.5 && checkVel.y<0.5){
+    this.addVelocity(new Vec2D(checkVel.x, checkVel.y));
+    }
+    
+    
   }
 
   void display() {
 
-    //this.addVelocity(force);  
+    //this.addVelocity(force);
+    
     fill(0);
     ellipse(x, y, r*2, r*2);
   }
