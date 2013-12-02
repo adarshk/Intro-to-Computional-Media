@@ -63,7 +63,7 @@ class TwitterSearch {
         messages.add(t.getText());
         //users.add(t.getUser());
          User u = t.getUser();
-         println("Location - "+u.getLocation() + "  /Tweet Loc - "+ t.getGeoLocation());
+         println("Location - "+u.getLocation() + "                  /Tweet Loc - "+ t.getGeoLocation());
       }
 
     } catch (TwitterException e) {

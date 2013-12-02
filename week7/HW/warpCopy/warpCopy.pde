@@ -47,8 +47,8 @@ void setup() {
   }
   
   cam = new Capture(this,640/2,240,"Logitech Camera #2",30);
-  cam2 = new Capture(this,320,240,"Logitech Camera",30);
-  //cam2 = new Capture(this,640,480);
+  //cam2 = new Capture(this,320,240,"Logitech Camera",30);
+  cam2 = new Capture(this,640,480);
   opencv = new OpenCV(this,cam);
   opencv2 = new OpenCV(this,cam2);
   //opencv = new OpenCV(this, 640/2,height/2);

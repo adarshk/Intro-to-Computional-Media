@@ -13,18 +13,9 @@ class Guardian{
  } 
   
   
-  
+  //JSONArray getAllArticles(String searchText) {
   processing.data.JSONArray getAllArticles(String searchText) {
-  
-  // Build up the request URL for your search string
-  // Read the documentation on the NYT Developers site for how to construct your query string
-  // http://developer.nytimes.com/docs/article_search_api/
-  /*
-  * QUERY NYT for Data
-  * Keywords: Obama, drone
-  * From Oct 20, 2013 to Oct 22, 2013
-  * Query string includes the baseURL and your API key defined above
-  */
+ 
   //String request = baseURL + "Pakistan+drone&from-date=2013-08-01&to-date=2013-11-03&api-key=" + apiKey;
   String request = baseURL + searchText + "&api-key="+ apiKey;
   // Here you can start to actually dig into the data
