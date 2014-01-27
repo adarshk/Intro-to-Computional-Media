@@ -1,0 +1,19 @@
+Data:
+
+Idea: Use twitter data to map reactions to NYTimes and Guardian news data on a map.
+This week I decided to use NYTimes, guardian and twitter api to identify the hot areas where that particular news is being discussed. I faced a few problems with this. The main being that the location of a user on twitter is setup by the user. So this requires parsing the data because some users gave random locations like 'sky' or some made up coordinates. Obviously to parse this data took up a lot of time. Hence I couldnt finish it this week but will continue working on it. Here is a sample output:
+
+
+<a href="http://www.flickr.com/photos/43212031@N06/11342034116/" title="Screen Shot 2013-12-09 at 19.52.19 by Adarshk09, on Flickr"><img src="http://farm8.staticflickr.com/7395/11342034116_7bcc15e84a_z.jpg" width="188" height="640" alt="Screen Shot 2013-12-09 at 19.52.19"></a>
+
+<a href="http://www.flickr.com/photos/43212031@N06/11342055374/" title="Screen Shot 2013-12-09 at 19.54.09 by Adarshk09, on Flickr"><img src="http://farm4.staticflickr.com/3765/11342055374_c4db7776a9_z.jpg" width="625" height="640" alt="Screen Shot 2013-12-09 at 19.54.09"></a>
+
+As you can see, there is no consistency. I used till mill for creating the map and putting locations on it. I am also able to retrieve the news stories from both NYTimes and Guardian.
+
+<a href="http://www.flickr.com/photos/43212031@N06/11342094853/" title="Screen Shot 2013-12-09 at 19.55.27 by Adarshk09, on Flickr"><img src="http://farm3.staticflickr.com/2834/11342094853_33b0ba983b_z.jpg" width="640" height="163" alt="Screen Shot 2013-12-09 at 19.55.27"></a>
+
+
+Here I am connecting all the locations of the users posting about a particular topic.
+
+<a href="http://www.flickr.com/photos/43212031@N06/11341881614/" title="Screen Shot 2013-12-12 at 09.00.22 by Adarshk09, on Flickr"><img src="http://farm6.staticflickr.com/5510/11341881614_186bc907c9_z.jpg" width="625" height="640" alt="Screen Shot 2013-12-12 at 09.00.22"></a>
+
