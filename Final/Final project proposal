@@ -1,0 +1,16 @@
+Final project proposal:
+
+Tagmented
+Tag objects with media using augmented reality
+
+Tagmented is an interface for attaching objects with information such as images, sound and text using Augmented reality. Users can share this with others or share the actual object to pass on the information. 
+
+<a href="http://www.flickr.com/photos/43212031@N06/11342035075/" title="img_close2 by Adarshk09, on Flickr"><img src="http://farm3.staticflickr.com/2813/11342035075_3264c7e65e_z.jpg" width="640" height="500" alt="img_close2"></a>
+
+
+
+Description:
+We are surrounded by objects around us. However not every object is intelligent enough to communicate back with you. Augmented reality has a great potential to solve this problem. The idea is that any object can be tagged with images, text or sound, and given to someone else who can see this media on the object using the same application.
+
+Steps to tag the object:
+The object is first detected and an then an interface pops up from which the image/text/sound can be selected and dragged onto the object. Ideally this would run on a phone or tablet. The object can then be given to someone else who can run the same app to view the same image/text/sound. The first user can decide on the permissions granted to any specific user and therfore the user who is given the object has to perform certain gestures to unlock the content.

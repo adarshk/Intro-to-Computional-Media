@@ -40,8 +40,11 @@ void oscEvent(OscMessage theOscMessage) {
   
   if(theOscMessage.checkAddrPattern("/trigger/led")==true) {
   println("led received");
-  myPort.write("0");
+  myPort.write("65");
   }
+//  else{
+//    myPort.write("0");
+//  }
   
   //if(theOscMessage.addrPattern() == "/mouse/button"){
     

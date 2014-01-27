@@ -137,6 +137,9 @@ void draw(){
      p.display();
   }
   
+  chain.updateTail(mouseX,mouseY);
+  chain.display();
+  
   /*
   
   // Draw a line between the particles

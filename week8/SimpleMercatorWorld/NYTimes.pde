@@ -34,8 +34,8 @@ class NYTimes{
     int results = nytData.getJSONObject("response").getJSONObject("meta").getInt("hits");
     
     // Get the "total" result number and store is an integer
-    println ("There were " + results + " occurences of the term Pakistan + drone in the last 3 days");
-    
+    //println ("There were " + results + " occurences of the term Pakistan + drone in the last 3 days");
+    println("There were "+ results + " occurences of the term "+ searchText + "in that period");
     return nytData.getJSONObject("response").getJSONArray("docs");
   }
   catch (Exception e) {

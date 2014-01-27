@@ -3,7 +3,7 @@
 Servo servoMotor;       // creates an instance of the servo object to control a servo
 int servoPin = 3;       // Control pin for servo motor
 
-int pin =2;
+int pin =12;
 int incomingByte = 0;
 int flag=0;
 int ser=0;
@@ -11,8 +11,8 @@ int ser=0;
 void setup()
 {
   Serial.begin(9600);
-  servoMotor.attach(servoPin);
-  pinMode(2,OUTPUT);
+  //servoMotor.attach(servoPin);
+  pinMode(12,OUTPUT);
   Serial.setTimeout(1000);
 }
 
@@ -24,14 +24,18 @@ void loop(){
     
   
   Serial.println(incomingByte,DEC);
-  if(flag%2==0){
-  digitalWrite(2,HIGH);
-  }
-  else{
-  digitalWrite(2,LOW);
-  }
+  //if(flag%100==0){
+  digitalWrite(pin,HIGH);
+  //}
+  //digitalWrite(pin,LOW);
   
-servoMotor.write(ser);  
+  
+  
+//  else{
+//  digitalWrite(pin,LOW);
+//  }
+  
+//servoMotor.write(ser);  
   }
 if(ser==179)
 ser=0;
